@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="**/*.java" kind="src" path="src/main/java"/>
+	<classpathentry excluding="**/*.java" kind="src" path="src/main/resources"/>
+	<classpathentry kind="var" path="M2_REPO/asm/asm/3.1/asm-3.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-core/1.8/jersey-core-1.8.jar" sourcepath="M2_REPO/com/sun/jersey/jersey-core/1.8/jersey-core-1.8-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/sun/jersey/jersey-server/1.8/jersey-server-1.8.jar" sourcepath="M2_REPO/com/sun/jersey/jersey-server/1.8/jersey-server-1.8-sources.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/.m2/repository/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Jars/gson-2.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Jars/jackson-asl-0.9.4.jar"/>
+	<classpathentry kind="lib" path="C:/Jars/jackson-core-asl-1.4.5.jar"/>
+	<classpathentry kind="lib" path="C:/Jars/cxf-bundle-jaxrs-2.6.0.jar"/>
+	<classpathentry kind="lib" path="C:/Jars/commons-codec-1.10-bin/commons-codec-1.10/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="C:/Jars/spring4/spring-context-4.1.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Jars/spring4/spring-core-4.1.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Jars/spring4/spring-web-4.1.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Jars/commons-beanutils-1.9.2.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/commonEM"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/MiddleLayerEM"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
