@@ -42,6 +42,12 @@ public class AddressBO {
 	public void setPin(int pin) {
 		this.pin = pin;
 	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
 	
 	
 	
