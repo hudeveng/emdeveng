@@ -1,7 +1,7 @@
 package com.pridet.constant;
 
 public enum ServiceTypesConstants {
-	PATIENT("patientservice"), CUSTOMER("customerservice"),ADDRESSHELPER("addresshelper");
+	PATIENT("patientservice"), CUSTOMER("customerservice"), ADDRESSHELPER("addresshelper");
 
 	private ServiceTypesConstants(String servicename) {
 		this.setServicename(servicename);
