@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.pridet.medzhealth")
+@ComponentScan(basePackages = "com.pridet")
 public class AppConfig {
 	
 	@Bean

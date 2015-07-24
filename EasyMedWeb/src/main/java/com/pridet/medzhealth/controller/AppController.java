@@ -1,86 +1,92 @@
 package com.pridet.medzhealth.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
-import javax.validation.Valid;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.pridet.services.impl.PatientServices;
-import com.pridet.medzhealth.service.EmployeeService;
+import com.pridet.bo.BaseBO;
+import com.pridet.bo.CityBO;
+import com.pridet.bo.MedicineStoreBO;
+import com.pridet.services.impl.AddressHelper;
+import com.pridet.services.impl.MedicineStoreServices;
 
 @Controller
-@RequestMapping("/")
 public class AppController {
-
+	
 	@Autowired
-	PatientServices service;
+	AddressHelper addresshelper;
 	
-	@RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
-	public String listEmployees(ModelMap model) {
-
-		List<Employee> employees = service.findAllEmployees();
-		model.addAttribute("employees", employees);
-		return "allemployees";
-	}
+	@Autowired
+	MedicineStoreServices medicineStoreServices;
 	
-	
-	/*@Autowired
-	EmployeeService service;
-
-	
-	 * This method will list all existing employees.
-	 
-	@RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
-	public String listEmployees(ModelMap model) {
-
-		List<Employee> employees = service.findAllEmployees();
-		model.addAttribute("employees", employees);
-		return "allemployees";
+	@RequestMapping("/registerPage")
+	public String loadRegistrationPage(@ModelAttribute("store") 
+	MedicineStoreBO store, BindingResult result, ModelMap model, 
+	HttpServletRequest request, HttpServletResponse response) {
+		//get all cities, states and countries
+		List<CityBO> cityList = addresshelper.getAllCities();
+		model.addAttribute("cityList", cityList);
+		model.addAttribute("name", "Guest");
+		return "registration2";
 	}
 
-	
-	 * This method will provide the medium to add a new employee.
-	 
-	@RequestMapping(value = { "/new" }, method = RequestMethod.GET)
-	public String newEmployee(ModelMap model) {
-		Employee employee = new Employee();
-		model.addAttribute("employee", employee);
-		return "registration";
+	@RequestMapping(value = "/saveDetails", method = RequestMethod.POST)
+	@ResponseBody
+	public String saveStoreDetails(@RequestBody String json, Model model) {
+		
+		MedicineStoreBO store = new MedicineStoreBO();
+		//ObjectMapper mapper = new ObjectMapper();
+		System.out.println("JSON : "+json);
+		store.setOwnername("Shubhra Dutta");
+		
+		//MedicineStoreBO requestValue = mapper.readValue(json, MedicineStoreBO.class);
+		/*if(null != requestValue){
+			System.out.println(requestValue.getOwnername());
+		}*/
+		//store.setOwnername(requestValue.getOwnername());
+		//store.setStorename(requestValue.getStorename());
+		byte b = 0;
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date date = new Date();
+		store.setAddress("Hadapsar");
+		store.setCity(1);
+		store.setCountry(1);
+		//YYYY-MM-DD HH:MM:SS
+		//store.setCreatedon(dateFormat.format(date));
+		store.setCreatedon(new Date());
+		store.setDocumentssubmited(b);
+		store.setIsactive(b);
+		store.setLicennceno("11111");
+		store.setOwnername("Shubhra");
+		store.setPin(411028);
+		store.setPrimarycontactno(1111111111);
+		store.setState(1);
+		store.setStorename("Dutta Drugs");
+		store.setUpdatedbyid(1);
+		//YYYY-MM-DD HH:MM:SS
+		store.setUpdatedon(new Date());
+		//update db
+		BaseBO basebo = (BaseBO) store;
+		basebo = medicineStoreServices.saveBeanDetails(basebo);
+		store = (MedicineStoreBO) basebo;
+		
+		String message = "Thank you"+store.getId();
+		model.addAttribute("success", message);
+		return "success2";
 	}
-
-	
-	 * This method will be called on form submission, handling POST request for
-	 * saving employee in database. It also validates the user input
-	 
-	@RequestMapping(value = { "/new" }, method = RequestMethod.POST)
-	public String saveEmployee(@Valid Employee employee, BindingResult result,
-			ModelMap model) {
-
-		if (result.hasErrors()) {
-			return "registration";
-		}
-
-		service.saveEmployee(employee);
-
-		model.addAttribute("success", "Employee " + employee.getName()
-				+ " registered successfully");
-		return "success";
-	}
-
-	
-	 * This method will delete an employee by it's SSN value.
-	 
-	@RequestMapping(value = { "/delete-{ssn}-employee" }, method = RequestMethod.GET)
-	public String deleteEmployee(@PathVariable String ssn) {
-		service.deleteEmployeeBySsn(ssn);
-		return "redirect:/list";
-	}*/
-
 }

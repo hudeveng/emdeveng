@@ -3,8 +3,8 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.websystique.springmvc</groupId>
-	<artifactId>SpringHibernateExample</artifactId>
+	<groupId>com.pridet</groupId>
+	<artifactId>emweb</artifactId>
 	<packaging>war</packaging>
 	<version>1.0.0</version>
 	<name>MedZhealthWeb</name>
@@ -92,6 +92,18 @@
 		    <groupId>javax.servlet</groupId>
 		    <artifactId>jstl</artifactId>
 		    <version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.pridet</groupId>
+			<artifactId>common</artifactId>
+			<version>1.0.1</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.pridet</groupId>
+			<artifactId>middle-layer</artifactId>
+			<version>1.0.1</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 
