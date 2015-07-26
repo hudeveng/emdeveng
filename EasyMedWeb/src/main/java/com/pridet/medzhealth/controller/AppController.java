@@ -35,9 +35,9 @@ public class AppController {
 	MedicineStoreServices medicineStoreServices;
 	
 	@RequestMapping("/registerPage")
-	public String loadRegistrationPage(@ModelAttribute("store") 
-	MedicineStoreBO store, BindingResult result, ModelMap model, 
-	HttpServletRequest request, HttpServletResponse response) {
+	public String loadRegistrationPage(ModelMap model) {
+		MedicineStoreBO store = new MedicineStoreBO();
+		model.addAttribute("store", store);
 		//get all cities, states and countries
 		List<CityBO> cityList = addresshelper.getAllCities();
 		model.addAttribute("cityList", cityList);
@@ -46,37 +46,20 @@ public class AppController {
 	}
 
 	@RequestMapping(value = "/saveDetails", method = RequestMethod.POST)
-	@ResponseBody
-	public String saveStoreDetails(@RequestBody String json, Model model) {
-		
-		MedicineStoreBO store = new MedicineStoreBO();
-		//ObjectMapper mapper = new ObjectMapper();
-		System.out.println("JSON : "+json);
-		store.setOwnername("Shubhra Dutta");
-		
-		//MedicineStoreBO requestValue = mapper.readValue(json, MedicineStoreBO.class);
-		/*if(null != requestValue){
-			System.out.println(requestValue.getOwnername());
-		}*/
-		//store.setOwnername(requestValue.getOwnername());
-		//store.setStorename(requestValue.getStorename());
+	public String saveStoreDetails(@ModelAttribute("store") MedicineStoreBO store, ModelMap model) {
 		byte b = 0;
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date date = new Date();
 		store.setAddress("Hadapsar");
-		store.setCity(1);
 		store.setCountry(1);
 		//YYYY-MM-DD HH:MM:SS
-		//store.setCreatedon(dateFormat.format(date));
 		store.setCreatedon(new Date());
 		store.setDocumentssubmited(b);
 		store.setIsactive(b);
 		store.setLicennceno("11111");
-		store.setOwnername("Shubhra");
 		store.setPin(411028);
 		store.setPrimarycontactno(1111111111);
 		store.setState(1);
-		store.setStorename("Dutta Drugs");
 		store.setUpdatedbyid(1);
 		//YYYY-MM-DD HH:MM:SS
 		store.setUpdatedon(new Date());
@@ -85,7 +68,7 @@ public class AppController {
 		basebo = medicineStoreServices.saveBeanDetails(basebo);
 		store = (MedicineStoreBO) basebo;
 		
-		String message = "Thank you"+store.getId();
+		String message = "Thank you "+store.getOwnername();
 		model.addAttribute("success", message);
 		return "success2";
 	}
