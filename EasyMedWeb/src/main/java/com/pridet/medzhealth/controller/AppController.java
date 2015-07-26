@@ -48,7 +48,6 @@ public class AppController {
 	@RequestMapping(value = "/saveDetails", method = RequestMethod.POST)
 	public String saveStoreDetails(@ModelAttribute("store") MedicineStoreBO store, ModelMap model) {
 		byte b = 0;
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date date = new Date();
 		store.setAddress("Hadapsar");
 		store.setCountry(1);
@@ -63,6 +62,9 @@ public class AppController {
 		store.setUpdatedbyid(1);
 		//YYYY-MM-DD HH:MM:SS
 		store.setUpdatedon(new Date());
+		store.setLatitude(1);
+		store.setLongitude(1);
+		
 		//update db
 		BaseBO basebo = (BaseBO) store;
 		basebo = medicineStoreServices.saveBeanDetails(basebo);
