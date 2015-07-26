@@ -11,6 +11,7 @@
 		<module>common</module>
 		<module>EMdao</module>
 		<module>MiddleLayerEM</module>
+		<module>EasyMedWeb</module>
 		<module>RESTem</module>
 	</modules>
 </project>
