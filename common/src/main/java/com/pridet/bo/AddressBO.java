@@ -3,7 +3,7 @@ package com.pridet.bo;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="location")
-public class AddressBO {
+public class AddressBO { 
 
 	private String city;
 	private String State;
