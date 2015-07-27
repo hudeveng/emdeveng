@@ -25,19 +25,17 @@ http://cxf.apache.org/schemas/core.xsd">
 			<entry key="org.apache.cxf.propagate.exception" value="false" />
 			<entry key="map.cxf.interceptor.fault" value="true" />
 		</jaxrs:properties>
-		<!-- <jaxrs:inInterceptors>
-			<ref bean="emRestServiceInterceptor" />
-		</jaxrs:inInterceptors> -->
+		<!-- <jaxrs:inInterceptors> <ref bean="emRestServiceInterceptor" /> </jaxrs:inInterceptors> -->
 		<jaxrs:serviceBeans>
 			<ref bean="patientRegService" />
 			<ref bean="registeruser" />
 			<ref bean="locationservice" />
+			<ref bean="fileuploadService" />
 		</jaxrs:serviceBeans>
 		<jaxrs:providers>
-			<!-- <bean id="customException"
-				class="com.cognizant.cloudone.icservices.exceptionmapper.CustomExceptionMapper" />
-			<bean id="authException"
-				class="com.cognizant.cloudone.icservices.exceptionmapper.AuthExceptionMapper" /> -->
+			<!-- <bean id="customException" class="com.cognizant.cloudone.icservices.exceptionmapper.CustomExceptionMapper" 
+				/> <bean id="authException" class="com.cognizant.cloudone.icservices.exceptionmapper.AuthExceptionMapper" 
+				/> -->
 			<ref bean="jaxbProvider" />
 			<ref bean="jsonProvider" />
 		</jaxrs:providers>
@@ -55,8 +53,11 @@ http://cxf.apache.org/schemas/core.xsd">
 		scope="prototype" />
 	<bean id="registeruser" class="com.pridet.restservices.UserRegistration"
 		scope="prototype" />
-		<bean id="locationservice" class="com.pridet.restservices.LocationDetails"
+	<bean id="locationservice" class="com.pridet.restservices.LocationDetails"
 		scope="prototype" />
+	<bean id="fileuploadService" class="com.pridet.restservices.UploadFileService"
+		scope="prototype" />
+
 
 	<bean id="depthProperties" class="org.apache.cxf.staxutils.DocumentDepthProperties">
 		<property name="innerElementCountThreshold" value="500" />
