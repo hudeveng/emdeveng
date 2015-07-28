@@ -56,6 +56,10 @@ public class MedicineStoreDO {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date verifiedon;
 
+	private double latitude;
+
+	private double longitude;
+	
 	public MedicineStoreDO() {
 	}
 
@@ -193,6 +197,22 @@ public class MedicineStoreDO {
 
 	public void setVerifiedon(Date verifiedon) {
 		this.verifiedon = verifiedon;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
 	}
 
 }

@@ -8,6 +8,9 @@
 <title>Registration Confirmation Page</title>
 </head>
 <body>
+	<h2>Store details updated successfully.</h2>
+	<br>
+	<br>
 	${success}
 	<br/>
 	<br/>

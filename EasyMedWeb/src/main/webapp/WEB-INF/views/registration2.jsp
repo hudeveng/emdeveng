@@ -15,43 +15,15 @@
 	</style>
 	
 	<script type="text/javascript">
-	$(document).ready(function() {
-		$('#storeForm').submit(
-			function(event) {
-				var ownername = $('#ownername').val();
-				var storename = $('#storename').val();
-				var city = $('#city').val();
-				var json = {"ownername" : ownername, "storename" : storename, "city" : city};
-				$.ajax({
-					url : '/medzhealthweb/saveDetails',
-					type: 'POST',
-			        data: JSON.stringify(json),
-			        cache:false,
-			        beforeSend: function(xhr) {  
-			            xhr.setRequestHeader("Accept", "application/json");  
-			            xhr.setRequestHeader("Content-Type", "application/json");  
-			        },
-					success : function(response) {
-						alert( response );
-					},
-					error : function(xhr, status, error) {
-						alert(xhr.responseText);
-					}
-				});
-				return false;
-			});
-		});
-	
 	</script>
 </head>
 
 <body>
-
 	<h2>Medicine Store Registration</h2>
 	<br>
 	<br>
  	<h3>Hello : ${name}</h3>
- 	<form:form id="storeForm" method="POST" commandName="store">
+ 	<form:form id="storeForm" method="POST" commandName="store" action="${pageContext.request.contextPath}/saveDetails">
 		<table>
 			<tr>
 				<td><label for="ownername">Owner Name: </label> </td>
