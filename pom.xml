@@ -8,6 +8,7 @@
 	<name>myproject</name>
 	<url>http://maven.apache.org</url>
 	<modules>
+		<module>util</module>
 		<module>common</module>
 		<module>EMdao</module>
 		<module>MiddleLayerEM</module>

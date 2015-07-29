@@ -7,6 +7,7 @@ import com.pridet.constant.ServiceTypesConstants;
 import com.pridet.services.IServices;
 import com.pridet.services.impl.CustomerServices;
 import com.pridet.services.impl.DefaultService;
+import com.pridet.services.impl.MedicineStoreServices;
 import com.pridet.services.impl.PatientServices;
 
 public class ServiceFactory {
@@ -20,7 +21,9 @@ public class ServiceFactory {
 		} else if(ServiceTypesConstants.CUSTOMER.equals(type)){
 			//return (CustomerServices)context.getBean(type.getServicename());
 			return null;
-		} else{
+		} else if(ServiceTypesConstants.MEDICALSTORES.equals(type)){
+			return (MedicineStoreServices)context.getBean(type.getServicename());
+		}else{
 			//return (DefaultService)context.getBean(type.getServicename());
 			return null;
 		}

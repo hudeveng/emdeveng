@@ -1,5 +1,6 @@
 package com.pridet.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,30 @@ public class MedicineStoreServices implements IServices {
 		}
 		return msbo;
 	}
+	
+
+	public List<MedicineStoreBO> getMedicalStoresInLocation(MedicineStoreBO msbo) {
+
+		MedicineStoreDO msdo = null;
+		List<MedicineStoreBO> medicalStoreBOs = new ArrayList<MedicineStoreBO>();
+
+		try {
+			msdo = MedicineStoreMapper.getMedicineStoreDO(msbo);
+			List<MedicineStoreDO> medicalStores = msdao.findStoresByLatitudeAndLongitude(msdo);
+			for (MedicineStoreDO medicineStoreDO : medicalStores) {
+				MedicineStoreBO amsbo = MedicineStoreMapper.getMedicineStoreBO(medicineStoreDO);
+				System.out.println("storename" + amsbo.getStorename());
+				medicalStoreBOs.add(amsbo);
+			}
+			msbo = MedicineStoreMapper.getMedicineStoreBO(msdo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return medicalStoreBOs;
+
+	}
+	
+	
 	
 	@Override
 	public BaseBO saveBeanDetails(BaseBO basebo) {
