@@ -60,6 +60,22 @@ public class MedicineStoreDO {
 
 	private double longitude;
 	
+	private String emailid;
+	
+	private String extrainfo;
+	
+	private String firstname;
+	
+	private String middlename;
+	
+	private String lastname;
+	
+	private int gender;
+	
+	private String password;
+	
+	private String username;
+	
 	public MedicineStoreDO() {
 	}
 
@@ -213,6 +229,70 @@ public class MedicineStoreDO {
 
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
+	}
+
+	public String getEmailid() {
+		return emailid;
+	}
+
+	public void setEmailid(String emailid) {
+		this.emailid = emailid;
+	}
+
+	public String getExtrainfo() {
+		return extrainfo;
+	}
+
+	public void setExtrainfo(String extrainfo) {
+		this.extrainfo = extrainfo;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getMiddlename() {
+		return middlename;
+	}
+
+	public void setMiddlename(String middlename) {
+		this.middlename = middlename;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public int getGender() {
+		return gender;
+	}
+
+	public void setGender(int gender) {
+		this.gender = gender;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 }
