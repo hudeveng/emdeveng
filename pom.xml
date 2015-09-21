@@ -8,8 +8,8 @@
 	<name>myproject</name>
 	<url>http://maven.apache.org</url>
 	<modules>
-		<module>util</module>
 		<module>common</module>
+	    	<module>util</module>
 		<module>EMdao</module>
 		<module>MiddleLayerEM</module>
 		<module>EasyMedWeb</module>

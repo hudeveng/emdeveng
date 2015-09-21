@@ -7,4 +7,22 @@
 	<artifactId>util</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0.1</version>
+	<dependencies>
+		<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+			<version>1.7.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.pridet</groupId>
+			<artifactId>common</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+
+	</dependencies>
 </project>

@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.pridet.ElasticSearch.ElasticSearchUtil;
 import com.pridet.bo.BaseBO;
 import com.pridet.bo.MedicineStoreBO;
 import com.pridet.dao.CityDao;
@@ -44,6 +45,9 @@ public class MedicineStoreServices implements IServices {
 			msdo = (MedicineStoreDO) msdao.saveStore(msdo);
 			System.out.println("id:"+msdo.getId());
 			msbo = MedicineStoreMapper.getMedicineStoreBO(msdo);
+			ElasticSearchUtil esu = new ElasticSearchUtil();
+			esu.saveDetails(msbo);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
