@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Registration</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/style.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <div class="registration">
+        <div id="wrapper">
+            <!-- Page Content -->
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Registration</h1>
+                            <div class="registration-container">
+                                <form action="" method="POST" id="register-form" novalidate="novalidate">
+                                    <p><span>*</span> indicate required information</p>
+                                    <fieldset>
+                                        <legend>Please fill in the details</legend>
+                                        <div class="col-md-6 left-container">
+                                            <div class="clearfix">
+                                            <label class="col-sm-3">First Name*</label>
+                                            <input class="col-sm-9" type="text" id="firstname" name="firstname" placeholder="Enter First Name" />
+                                        </div>
+                                        <div class="clearfix">
+                                            <label class="col-sm-3">Middle Name</label>
+                                            <input class="col-sm-9" type="text" id="middlename" name="middlename" placeholder="Enter Middle Name" />
+                                        </div>
+                                        <div class="clearfix">
+                                            <label class="col-sm-3">Last Name*</label>
+                                            <input class="col-sm-9" type="text" id="lastname" name="lastname" placeholder="Enter Last Name" />
+                                        </div>
+                                        <div class="clearfix">
+                                            <label class="col-sm-3">Owner Name*</label>
+                                            <input class="col-sm-9" type="text" id="ownername" name="ownername" placeholder="Enter Owner Name" />
+                                        </div>
+                                        <div class="clearfix">
+                                            <label class="col-sm-3">Shop Name*</label>
+                                            <input class="col-sm-9" type="text" id="shopname" name="shopname" placeholder="Enter Shop Name" />
+                                        </div>
+                                        <div class="clearfix">
+                                            <label class="col-sm-3">Shop License Number*</label>
+                                            <input class="col-sm-9" type="text" id="shoplicensenumber" name="shoplicensenumber" placeholder="Enter Shop License Number" required />
+                                        </div>
+                                        <div class="clearfix">
+                                            <label class="col-sm-3">Address*</label>
+                                            <textarea class="col-sm-9" id="address" name="address" placeholder="Enter Address"></textarea>
+                                        </div>
+                                        <div class="clearfix">
+                                            <label class="col-sm-3">Phone Number*</label>
+                                            <input class="col-sm-9" id="phonenumber" name="phonenumber" placeholder="Enter phone Number" />
+                                        </div>
+                                        <div class="clearfix">
+                                            <label class="col-sm-3">City*</label>
+                                            <input class="col-sm-9" type="text" id="city" name="city" placeholder="Enter City" required />
+                                        </div>
+                                        <div class="clearfix">
+                                            <label class="col-sm-3">State*</label>
+                                            <input class="col-sm-9" type="text" id="state" name="state" placeholder="Enter State" required />
+                                        </div>
+                                        <div class="clearfix">
+                                            <label class="col-sm-3">Country*</label>
+                                            <input class="col-sm-9" type="text" id="country" name="country" placeholder="Enter Country" required />
+                                        </div>    
+                                        </div>
+                                        <div class="col-md-6 right-container">
+                                            <div class="clearfix">
+                                            <label class="col-sm-3">Email*</label>
+                                            <input class="col-sm-9" type="email" id="email" name="email" placeholder="Enter Email" required />
+                                        </div>
+                                        <div class="clearfix">
+                                            <label class="col-sm-3">User Name*</label>
+                                            <input class="col-sm-9" type="text" id="username" name="username" placeholder="Enter User Name" required />
+                                        </div>
+                                        <div class="clearfix">
+                                            <label class="col-sm-3">Password*</label>
+                                            <input class="col-sm-9" type="password" id="password" name="password" placeholder="Enter Password" required />
+                                        </div>
+                                        <div class="clearfix">
+                                            <label class="col-sm-3">Confirm Password*</label>
+                                            <input class="col-sm-9" type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password" required />
+                                        </div>
+                                        <div class="clearfix">
+                                            <label class="col-sm-3">Gender*</label>
+                                            <select class="col-sm-3" name="gender" id="gender" required>
+                                                <option value="" selected="">Select</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="clearfix">
+                                            <label class="col-sm-3">How do u know about us?</label>
+                                            <textarea class="col-sm-9" rows="5" id="howdoyouknowaboutus" name="howdoyouknowaboutus" placeholder="Let us know"></textarea>
+                                        </div>    
+                                        </div>
+                                        
+                                        <div class="row clearfix">
+                                            <div class="col-lg-12">
+                                                <div class="col-md-6">
+                                                    <div class="clearfix">
+                                                        <input type="checkbox" class="checkbox" id="agree" name="agree" required />I agree to the Privacy Policy and Terms &amp; Conditions
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="registration-submit">
+                                                        <input class="btn btn-primary" type="submit" id="submit" name="submit" value="Submit" />
+                                                        <input class="btn" type="reset" value="Reset">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>      
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /#page-wrapper -->
+
+        </div>
+        <!-- /#wrapper -->
+    </div>
+    <!-- jQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+    <!-- Validate Javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="../dist/js/register-validation.js"></script>
+</body>
+
+</html>
