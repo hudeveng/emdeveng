@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 	<modelVersion>4.0.0</modelVersion>
@@ -11,9 +12,11 @@
 
 	<properties>
 		<springframework.version>4.0.6.RELEASE</springframework.version>
+		<springsecurity.version>4.0.1.RELEASE</springsecurity.version>
 		<hibernate.version>4.3.6.Final</hibernate.version>
 		<mysql.version>5.1.31</mysql.version>
 		<joda-time.version>2.3</joda-time.version>
+		<jackson.version>2.5.3</jackson.version>
 	</properties>
 
 	<dependencies>
@@ -43,6 +46,23 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		
+		<!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${springsecurity.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${springsecurity.version}</version>
+		</dependency>
 
 		<!-- Hibernate -->
 		<dependency>
@@ -63,18 +83,18 @@
 			<version>5.1.2.Final</version>
 		</dependency>
 
-		<!-- Joda-Time -->		
+		<!-- Joda-Time -->
 		<dependency>
-  			<groupId>joda-time</groupId>
-  			<artifactId>joda-time</artifactId>
-  			<version>${joda-time.version}</version>
-  		</dependency>
-		
-		<!-- To map JodaTime with database type -->  		
-  		<dependency>
-    		<groupId>org.jadira.usertype</groupId>
-    		<artifactId>usertype.core</artifactId>
-    		<version>3.0.0.CR1</version>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${joda-time.version}</version>
+		</dependency>
+
+		<!-- To map JodaTime with database type -->
+		<dependency>
+			<groupId>org.jadira.usertype</groupId>
+			<artifactId>usertype.core</artifactId>
+			<version>3.0.0.CR1</version>
 		</dependency>
 
 		<!-- Servlet+JSP+JSTL -->
@@ -89,9 +109,9 @@
 			<version>2.3.1</version>
 		</dependency>
 		<dependency>
-		    <groupId>javax.servlet</groupId>
-		    <artifactId>jstl</artifactId>
-		    <version>1.2</version>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.pridet</groupId>
@@ -104,7 +124,7 @@
 			<artifactId>middle-layer</artifactId>
 			<version>1.0.1</version>
 			<scope>compile</scope>
-		</dependency> 
+		</dependency>
 	</dependencies>
 
 	<build>

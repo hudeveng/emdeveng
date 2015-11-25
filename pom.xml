@@ -13,6 +13,6 @@
 		<module>EMdao</module>
 		<module>MiddleLayerEM</module>
 		<module>EasyMedWeb</module>
-		<module>RESTem</module>
+		<!-- <module>RESTem</module> -->
 	</modules>
 </project>
