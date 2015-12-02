@@ -60,9 +60,9 @@ public class AppController {
 		MedicineStoreBO store = new MedicineStoreBO();
 		model.addAttribute("store", store);
 		//get all cities, states and countries
-		List<CityBO> cityList = addresshelper.getAllCities();
-		List<StateBO> stateList = addresshelper.getAllStates();
-		List<CountryBO> countryList = addresshelper.getAllCountries();
+		List<CityBO> cityList = addresshelper.getCity();
+		List<StateBO> stateList = addresshelper.getState();
+		List<CountryBO> countryList = addresshelper.getCountry();
 		model.addAttribute("cityList", cityList);
 		model.addAttribute("stateList", stateList);
 		model.addAttribute("countryList", countryList);

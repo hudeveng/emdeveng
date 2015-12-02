@@ -75,7 +75,7 @@ public class AddressHelper {
 		return LocationMapper.getStateBO(stateDO);
 	}
 
-	public List<CountryBO> getAllCountry() {
+	public List<CountryBO> getCountry() {
 		List<CountryDO> countryList = null;
 		List<CountryBO> countrybolt = null;
 		try {
