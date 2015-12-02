@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="state")
-public class StateDO {
+public class StateDO extends BaseDO{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="country")
-public class CountryDO {
+public class CountryDO extends BaseDO{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
