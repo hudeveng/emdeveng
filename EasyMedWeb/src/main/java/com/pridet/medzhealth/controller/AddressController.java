@@ -31,12 +31,12 @@ public class AddressController {
 	}
 	
 	@RequestMapping(value="/getstate",method = RequestMethod.GET)
-	public List<StateBO> getAllStates(){
+	public List<StateBO> getAllStates(){ 
 		return addresshelper.getState();
 	}
 	
 	@RequestMapping(value="/getstate/{id}",method = RequestMethod.GET)
-	public StateBO getState(@PathVariable int id){
+	public StateBO getState(@PathVariable int id){ 
 		return addresshelper.getState(id);
 	}
 	
