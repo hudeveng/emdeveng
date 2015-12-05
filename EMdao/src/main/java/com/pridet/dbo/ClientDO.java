@@ -1,80 +1,120 @@
 package com.pridet.dbo;
 
-import java.util.Date;
+import java.io.Serializable;
+import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
 
+/**
+ * The persistent class for the client database table.
+ * 
+ */
 @Entity
-@Table(name = "client")
-public class ClientDO extends BaseDO{
+@Table(name="client")
+@NamedQuery(name="ClientDO.findAll", query="SELECT c FROM ClientDO c")
+public class ClientDO implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	private String name;
-	private Date dob;
-	private int phone;
-	private String email;
-	private String gender;
+
 	private String address;
-	private ConsultationHistoryDO consultationHistory;
-	public int getId() {
-		return id;
+
+	private Timestamp dob;
+
+	private String email;
+
+	private String gender;
+
+	private String name;
+
+	private String phone;
+
+	//bi-directional many-to-one association to ConsultationhistoryDO
+	@OneToMany(mappedBy="client")
+	private List<ConsultationhistoryDO> consultationhistories;
+
+	public ClientDO() {
 	}
+
+	public int getId() {
+		return this.id;
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public Date getDob() {
-		return dob;
-	}
-	public void setDob(Date dob) {
-		this.dob = dob;
-	}
-	public int getPhone() {
-		return phone;
-	}
-	public void setPhone(int phone) {
-		this.phone = phone;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
+
 	public String getAddress() {
-		return address;
+		return this.address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
-	@OneToOne(fetch = FetchType.LAZY)
-	@PrimaryKeyJoinColumn
-	public ConsultationHistoryDO getConsultationHistory() {
-		return consultationHistory;
+
+	public Timestamp getDob() {
+		return this.dob;
 	}
-	public void setConsultationHistory(ConsultationHistoryDO consultationHistory) {
-		this.consultationHistory = consultationHistory;
+
+	public void setDob(Timestamp dob) {
+		this.dob = dob;
 	}
-	  
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getGender() {
+		return this.gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhone() {
+		return this.phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public List<ConsultationhistoryDO> getConsultationhistories() {
+		return this.consultationhistories;
+	}
+
+	public void setConsultationhistories(List<ConsultationhistoryDO> consultationhistories) {
+		this.consultationhistories = consultationhistories;
+	}
+
+	public ConsultationhistoryDO addConsultationhistory(ConsultationhistoryDO consultationhistory) {
+		getConsultationhistories().add(consultationhistory);
+		consultationhistory.setClient(this);
+
+		return consultationhistory;
+	}
+
+	public ConsultationhistoryDO removeConsultationhistory(ConsultationhistoryDO consultationhistory) {
+		getConsultationhistories().remove(consultationhistory);
+		consultationhistory.setClient(null);
+
+		return consultationhistory;
+	}
 
 }

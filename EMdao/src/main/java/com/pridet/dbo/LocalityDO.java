@@ -1,43 +1,54 @@
 package com.pridet.dbo;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.io.Serializable;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
+/**
+ * The persistent class for the locality database table.
+ * 
+ */
 @Entity
-@Table(name = "locality")
-public class LocalityDO extends BaseDO {
+@Table(name="locality")
+public class LocalityDO implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+
 	private String name;
-	private Set<CityDO> cities = new HashSet<CityDO>();
-	public int getId() {
-		return id;
+
+	//bi-directional many-to-one association to CityDO
+	@ManyToOne
+	@JoinColumn(name="city")
+	private CityDO cityBean;
+
+	public LocalityDO() {
 	}
+
+	public int getId() {
+		return this.id;
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getName() {
-		return name;
+		return this.name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id")
-	public Set<CityDO> getCities() {
-		return cities;
+
+	public CityDO getCityBean() {
+		return this.cityBean;
 	}
-	public void setCities(Set<CityDO> cities) {
-		this.cities = cities;
+
+	public void setCityBean(CityDO cityBean) {
+		this.cityBean = cityBean;
 	}
-	
 
 }

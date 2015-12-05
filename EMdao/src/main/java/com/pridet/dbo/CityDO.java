@@ -13,14 +13,12 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="city")
-public class CityDO extends BaseDO{
+public class CityDO extends BaseDO{ 
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
-	
-	private String dummy;
 	
 	@Size(min=1, max=50)
 	@Column(name = "cityname", nullable = false)
@@ -34,7 +32,6 @@ public class CityDO extends BaseDO{
     @ManyToOne(optional = false)
 	private StateDO stateDO;
 	
-	private LocalityDO localityDO;
 
 	public int getId() {
 		return id;
@@ -67,15 +64,7 @@ public class CityDO extends BaseDO{
 	public void setStateDO(StateDO stateDO) {
 		this.stateDO = stateDO;
 	}
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id", nullable = false)
-	public LocalityDO getLocalityDO() {
-		return localityDO;
-	}
-
-	public void setLocalityDO(LocalityDO localityDO) {
-		this.localityDO = localityDO;
-	}
+	
 
 	
 	
