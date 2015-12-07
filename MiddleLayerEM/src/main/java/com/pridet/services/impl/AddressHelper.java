@@ -8,12 +8,15 @@ import org.springframework.stereotype.Service;
 
 import com.pridet.bo.CityBO;
 import com.pridet.bo.CountryBO;
+import com.pridet.bo.LocalityBO;
 import com.pridet.bo.StateBO;
 import com.pridet.dao.CityDao;
 import com.pridet.dao.CountryDao;
+import com.pridet.dao.LocalityDao;
 import com.pridet.dao.StateDao;
 import com.pridet.dbo.CityDO;
 import com.pridet.dbo.CountryDO;
+import com.pridet.dbo.LocalityDO;
 import com.pridet.dbo.StateDO;
 import com.pridet.mapper.LocationMapper;
 
@@ -23,9 +26,11 @@ public class AddressHelper {
 	@Autowired
 	CityDao citydao;
 	@Autowired
-	StateDao statedao; 
+	StateDao statedao;
 	@Autowired
 	CountryDao countrydao;
+	@Autowired
+	LocalityDao localitydao;
 
 	public List<CityBO> getCity() {
 		List<CityDO> cityList = null;
@@ -108,4 +113,21 @@ public class AddressHelper {
 		return countryBO;
 	}
 
+	public List<LocalityBO> getlocality() {
+		List<LocalityBO> localityBOs = new ArrayList<LocalityBO>();
+		try {
+			List<LocalityDO> localityDOlist = localitydao.getLocality();
+			if (localityDOlist != null) {
+				for (LocalityDO localityDO : localityDOlist) {
+					LocalityBO localityBO = LocationMapper
+							.getLocatilityBO(localityDO);
+					localityBOs.add(localityBO);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+		return localityBOs;
+	}
 }
