@@ -49,6 +49,10 @@ public class ProfessionaldetailDO implements Serializable {
 	@OneToMany(mappedBy="professionaldetail")
 	private List<LogincredentialDO> logincredentials;
 
+	//bi-directional many-to-one association to ProfessionalbookingmappingDO
+	@OneToMany(mappedBy="professionaldetail1")
+	private List<ProfessionalbookingmappingDO> professionalbookingmappings;
+
 	//bi-directional many-to-one association to LocalityDO
 	@ManyToOne
 	@JoinColumn(name="locality")
@@ -63,6 +67,15 @@ public class ProfessionaldetailDO implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="professions")
 	private ProfessionDO profession;
+
+	//bi-directional one-to-one association to ProfessionalbookingmappingDO
+	@OneToOne(mappedBy="professionaldetail2")
+	private ProfessionalbookingmappingDO professionalbookingmapping1;
+
+	//bi-directional one-to-one association to ProfessionalbookingmappingDO
+	@OneToOne
+	@JoinColumn(name="id")
+	private ProfessionalbookingmappingDO professionalbookingmapping2;
 
 	public ProfessionaldetailDO() {
 	}
@@ -199,6 +212,28 @@ public class ProfessionaldetailDO implements Serializable {
 		return logincredential;
 	}
 
+	public List<ProfessionalbookingmappingDO> getProfessionalbookingmappings() {
+		return this.professionalbookingmappings;
+	}
+
+	public void setProfessionalbookingmappings(List<ProfessionalbookingmappingDO> professionalbookingmappings) {
+		this.professionalbookingmappings = professionalbookingmappings;
+	}
+
+	public ProfessionalbookingmappingDO addProfessionalbookingmapping(ProfessionalbookingmappingDO professionalbookingmapping) {
+		getProfessionalbookingmappings().add(professionalbookingmapping);
+		professionalbookingmapping.setProfessionaldetail1(this);
+
+		return professionalbookingmapping;
+	}
+
+	public ProfessionalbookingmappingDO removeProfessionalbookingmapping(ProfessionalbookingmappingDO professionalbookingmapping) {
+		getProfessionalbookingmappings().remove(professionalbookingmapping);
+		professionalbookingmapping.setProfessionaldetail1(null);
+
+		return professionalbookingmapping;
+	}
+
 	public LocalityDO getLocalityBean() {
 		return this.localityBean;
 	}
@@ -221,6 +256,22 @@ public class ProfessionaldetailDO implements Serializable {
 
 	public void setProfession(ProfessionDO profession) {
 		this.profession = profession;
+	}
+
+	public ProfessionalbookingmappingDO getProfessionalbookingmapping1() {
+		return this.professionalbookingmapping1;
+	}
+
+	public void setProfessionalbookingmapping1(ProfessionalbookingmappingDO professionalbookingmapping1) {
+		this.professionalbookingmapping1 = professionalbookingmapping1;
+	}
+
+	public ProfessionalbookingmappingDO getProfessionalbookingmapping2() {
+		return this.professionalbookingmapping2;
+	}
+
+	public void setProfessionalbookingmapping2(ProfessionalbookingmappingDO professionalbookingmapping2) {
+		this.professionalbookingmapping2 = professionalbookingmapping2;
 	}
 
 }
